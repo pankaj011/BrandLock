@@ -1,0 +1,447 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Sanchu Animal Hospital",
+        "version": "1.0.0",
+        "title": "BrandLock",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "panku9665@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/api/v1/user",
+    "tags": [],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/brandlock/player": {
+            "get": {
+                "tags": [
+                    "Get Player Details"
+                ],
+                "summary": "response",
+                "description": "Get user profile",
+                "operationId": "Get user profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "response",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getUserProfile"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "Successful Operation"
+                    }
+                }
+            }
+        },
+        "/otp/get": {
+            "post": {
+                "tags": [
+                    "Get OTP"
+                ],
+                "summary": "response",
+                "description": "",
+                "operationId": "getOTP",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "response",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/getOTP"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "Successful Operation"
+                    }
+                }
+            }
+        },
+        "/address/add": {
+            "post": {
+                "tags": [
+                    "Add Address"
+                ],
+                "summary": "response",
+                "description": "Add User Address",
+                "operationId": "Add User Addres",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "response",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AddAddress"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "Successful Operation"
+                    }
+                }
+            }
+        },
+        "/address/update": {
+            "patch": {
+                "tags": [
+                    "Update Address"
+                ],
+                "summary": "response",
+                "description": "Update User Address",
+                "operationId": "Update User Address",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "response",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/updateAddress"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "Successful Operation"
+                    }
+                }
+            }
+        },
+        "/address/delete": {
+            "delete": {
+                "tags": [
+                    "Delete Address"
+                ],
+                "summary": "response",
+                "description": "Delete User Address",
+                "operationId": "Delete User Address",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "response",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/updateAddress"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "200": {
+                        "description": "Successful Operation"
+                    }
+                }
+            }
+        }
+    },
+    
+    "securitySchemes ": {
+        "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+        }
+    },
+    "securityDefinitions": {
+        "bearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "getOTP": {
+            "type": "object",
+            "required":[
+                "mobileNumber"
+               ],
+            "properties": {
+                "countryCode": {
+                    "type": "string"
+                },
+                "mobileNumber": {
+                    "type": "string"
+                },
+                "referralCode": {
+                    "type": "string"
+                },
+                "subscribeNewsLetter": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "countryCode": "+91",
+                "mobileNumber":"9876543210",
+                "referralCode":"HA25465OK",
+                "subscribeNewsLetter":"true"
+            }
+        },
+        "verifyOTP": {
+            "type": "object",
+            "required":[
+                "mobileNumber",
+                "otp"
+               ],
+            "properties": {
+                "countryCode": {
+                    "type": "string"
+                },
+                "mobileNumber": {
+                    "type": "string"
+                },
+                "otp": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "countryCode": "+91",
+                "mobileNumber":"9876543210",
+                "otp":1234
+            }
+        },
+        "logOut": {
+            "type": "object",
+            "required":[],
+            "properties": {},
+            "example": {}
+        },
+        "getUserProfile": {
+            "type": "object",
+            "required":[],
+            "properties": {},
+            "example": {}
+        },
+        "updateProfile": {
+            "type": "object",
+            "required":[],
+            "properties": {
+                "emailId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "profilePic": {
+                    "type": "string"
+                },
+                "dob": {
+                    "type": "date"
+                },
+                "anniversary": {
+                    "type": "date"
+                }
+            },
+            "example": {
+                "name": "ABC",
+                "gender": "MALE",
+                "dob": "01/10/2001",
+                "anniversary": "01/10/2021"
+            }
+        },
+        "getUserAllAddress": {
+            "type": "object",
+            "required":[],
+            "properties": {
+                "limit": {
+                    "type": "number"
+                },
+                "skip": {
+                    "type": "number"
+                }
+            },
+            "example": {
+                "limit": 10,
+                "skip":0
+            }
+        },
+        "getUserSpecifiedAddress": {
+            "type": "object",
+            "required":[
+                "addressId"
+            ],
+            "properties": {
+                "addressId": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "addressId": "6164022b26b81951042a31ff"
+            }
+        },
+        "AddAddress": {
+            "type": "object",
+            "required":[
+                "mobileNumber",
+                "name",
+                "address",
+                "city",
+                "state",
+                "country",
+                "pincode",
+                "isPrimary",
+                "type"
+            ],
+            "properties": {
+                "mobileNumber": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "pincode": {
+                    "type": "string"
+                },
+                "isPrimary": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "mobileNumber": "1234567891",
+                "name": "ABC",
+                "address": "nungambakkam",
+                "city": "chennai",
+                "state": "tamilnadu",
+                "country":"india",
+                "pincode": 620007,
+                "isPrimary": true,
+                "type": "OFFICE",
+                "status": "ACTIVE"
+            }
+        },
+        "updateAddress": {
+            "type": "object",
+            "required":[
+                "addressId"
+            ],
+            "properties": {
+                "mobileNumber": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "pincode": {
+                    "type": "string"
+                },
+                "isPrimary": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "addressId":"6163feb2c8d04d4c1019c467",
+                 "name":"EFG"
+            }
+        },
+        "deleteAddress": {
+            "type": "object",
+            "required":[
+                "addressId"
+            ],
+            "properties": {
+                "addressId": {
+                    "type": "string"
+                }
+            },
+            "example": {
+                "addressId": "6164022b26b81951042a31ff"
+            }
+        }
+        
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}

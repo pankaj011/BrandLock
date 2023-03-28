@@ -1,0 +1,22 @@
+{
+  "name": "brandlock_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pankaj Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.1",
+    "mysql2": "^3.1.2",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.28.1",
+    "swagger-ui-express": "^4.6.2",
+    "winston": "^3.8.2"
+  }
+}
